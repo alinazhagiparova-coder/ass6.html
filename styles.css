@@ -1,0 +1,115 @@
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #f7f7f7, #e3f2fd);
+  color: #333;
+  line-height: 1.6;
+}
+
+
+#header {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  font-family: "League Script", cursive;
+  font-weight: 400;
+  font-style: italic;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+#header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+
+.content {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgb(255, 252, 252);
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+
+h2 {
+  color: #983f3f;
+  text-align: left;
+  font-family: "DM Serif Text", serif;
+  font-weight: 600;
+  font-style: normal;
+  margin-top: 20px;
+}
+h3 {
+  color: #555;
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+
+ol {
+  padding-left: 20px;
+  list-style-type: decimal-leading-zero;
+}
+ul {
+  padding-left: 20px;
+  list-style-type: square;
+}
+li {
+  margin: 6px 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin: 15px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border: 3px solid #ddd;
+}
+
+
+a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: underline;
+  color: #1a5276;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn:hover {
+  background-color: #1a5276;
+}
+
+
+#footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  font-size: 14px;
+}
