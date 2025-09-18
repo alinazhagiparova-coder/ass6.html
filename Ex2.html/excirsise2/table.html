@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table and form</title>
+  <link rel="stylesheet" href="styletab.css">
+</head>
+<body>
+
+  
+  <h1 id="page-heading">Grades</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Milana</td>
+        <td>Math</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>Alikhan</td>
+        <td>Literature</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>Kate</td>
+        <td>Coding</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>Dana</td>
+        <td>English</td>
+        <td>C</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1 id="form-heading">Feedback Form</h1>
+  <div class="form-container">
+    <form>
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name"><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email"><br><br>
+
+      <label for="role">Role:</label><br>
+      <select id="role" name="role">
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+        <option value="other">Other</option>
+      </select><br><br>
+
+      <label>Do you find this useful?</label><br>
+      <input type="radio" id="yes" name="useful" value="yes">
+      <label for="yes">Yes</label>
+      <input type="radio" id="no" name="useful" value="no">
+      <label for="no">No</label><br><br>
+
+      <label for="comments">Comments:</label><br>
+      <textarea id="comments" name="comments" rows="5"></textarea><br><br>
+
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>
