@@ -21,13 +21,32 @@
     }
 
     .sidebar {
-      background: #f6ceff;
+      background: #ede8dc;
       padding: 20px;
       border-radius: 6px;
     }
 
+    .card {
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
     footer {
-      background: #a858d3;
+      background: #3f3f3f;
       color: white;
       text-align: center;
       padding: 15px;
@@ -68,51 +87,53 @@
     </div>
   </nav>
 
-
   <div class="container mt-4">
     <div class="row"> 
       <div class="col-lg-8">
-        <h1>My Projects</h1>
+        <h1>Most popular positions</h1>
         <div class="row g-3">
           <div class="col-md-6">
             <div class="card">
+              <img src="https://i.pinimg.com/736x/87/f6/b4/87f6b4b867c63442b4dc4c25d371ea46.jpg" class="card-img-top" alt="Project 1">
               <div class="card-body">
-                <h5 class="card-title">Project 1</h5>
-                <p class="card-text">Description of project 1.</p>
+                <h5 class="card-title">Cake 1</h5>
+                <p class="card-text">Description 1.</p>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="card">
+              <img src="https://i.pinimg.com/736x/d8/e7/75/d8e77588d06d5b2f9295216a7e9ed584.jpg" class="card-img-top" alt="Project 2">
               <div class="card-body">
-                <h5 class="card-title">Project 2</h5>
-                <p class="card-text">Description of project 2.</p>
+                <h5 class="card-title">Cake 2</h5>
+                <p class="card-text">Description 2.</p>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="card">
+              <img src="https://i.pinimg.com/736x/43/43/eb/4343eb103ae09dc6f55539528edbbf02.jpg" class="card-img-top" alt="Project 3">
               <div class="card-body">
-                <h5 class="card-title">Project 3</h5>
-                <p class="card-text">Description of project 3.</p>
+                <h5 class="card-title">Cake 3</h5>
+                <p class="card-text">Description 3.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div class="col-lg-4 sidebar">
-        <h3>About Me</h3>
-        <p>Short info about yourself.</p>
+        <h3>About us</h3>
+        <p>Address</p>
         <h4>Contact</h4>
-        <p>Email: example@mail.com</p>
-        <p>Phone: +7 700 000 0000</p>
+        <p>Email: bakery@mail.com</p>
+        <p>Phone: +7 70777777</p>
       </div>
     </div>
   </div>
 
-
   <footer>
-    <p>&copy; 2025 My Portfolio</p>
+    <p>&copy; 2025 Portfolio</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
