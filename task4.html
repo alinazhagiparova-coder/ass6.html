@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyBakery Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #fff4fa; /* light pink */
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    .nav-link {
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #f5afd0 !important;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #d47fa6;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .sidebar {
+      background: #fbe9f3;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .card {
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+      height: 220px;
+      object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #212529;
+      color: #f8f9fa;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #f5afd0;
+      text-decoration: none;
+      margin: 0 8px;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    @media (max-width: 576px) {
+      h1 { font-size: 22px; }
+      p  { font-size: 14px; }
+      .sidebar { font-size: 14px; }
+    }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 28px; }
+      p  { font-size: 16px; }
+      .sidebar { font-size: 16px; }
+    }
+
+    @media (min-width: 1024px) {
+      h1 { font-size: 36px; }
+      p  { font-size: 18px; }
+      .sidebar { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">MyBakery</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="task0.html">Register</a></li>
+           <li class="nav-item"><a class="nav-link" href="task2.html">Prices</a></li>
+         
+          <li class="nav-item"><a class="nav-link" href="task1.html">Menu</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main>
+    <div class="container">
+      <div class="row"> 
+        <div class="col-lg-8">
+          <h1>Most Popular Pastries</h1>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card">
+                <img src="https://i.pinimg.com/736x/87/f6/b4/87f6b4b867c63442b4dc4c25d371ea46.jpg" class="card-img-top" alt="Cake 1">
+                <div class="card-body">
+                  <h5 class="card-title">Strawberry Cake</h5>
+                  <p class="card-text">Light and fluffy strawberry shortcake with whipped cream.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <img src="https://i.pinimg.com/736x/d8/e7/75/d8e77588d06d5b2f9295216a7e9ed584.jpg" class="card-img-top" alt="Cake 2">
+                <div class="card-body">
+                  <h5 class="card-title">Macaron Tower</h5>
+                  <p class="card-text">Colorful macarons with creamy fillings in pastel tones.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <img src="https://i.pinimg.com/736x/43/43/eb/4343eb103ae09dc6f55539528edbbf02.jpg" class="card-img-top" alt="Cake 3">
+                <div class="card-body">
+                  <h5 class="card-title">Chocolate Croissant</h5>
+                  <p class="card-text">Crispy croissant filled with soft chocolate cream.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 sidebar">
+          <h3>About Us</h3>
+          <p>Welcome to MyBakery — your cozy corner for sweet memories and beautiful treats.</p>
+          <h4>Contact</h4>
+          <p>Email: bakery@mail.com</p>
+          <p>Phone: +7 707 777 7777</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MyBakery | All rights reserved</p>
+    <p>
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#">TikTok</a>
+    </p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
