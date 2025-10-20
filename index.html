@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Part 4 - To-Do List</title>
+  
+</head>
+<body>
+
+  <nav>
+    <div class="logo">My To-Do App</div>
+    <ul>
+      <li><a href="part1.html">Part 1</a></li>
+      <li><a href="part2.html">Part 2</a></li>
+      <li><a href="part3.html">Part 3</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="todoList"></ul>
+  </div>
+
+  <script>
+    let tasks = [];
+    function addTask() {
+      let text = document.getElementById("taskInput").value.trim();
+      if (text === "") return;
+      tasks.push(text);
+      document.getElementById("taskInput").value = "";
+      displayTasks();
+    }
+    function deleteTask(i) {
+      tasks.splice(i, 1);
+      displayTasks();
+    }
+    function toggleComplete(i) {
+      document.querySelectorAll("#todoList li")[i].classList.toggle("completed");
+    }
+    function displayTasks() {
+      let list = document.getElementById("todoList");
+      list.innerHTML = "";
+      tasks.forEach((t, i) => {
+        let li = document.createElement("li");
+        li.textContent = t;
+        li.onclick = () => toggleComplete(i);
+        let del = document.createElement("button");
+        del.textContent = "Delete";
+        del.onclick = e => { e.stopPropagation(); deleteTask(i); };
+        li.appendChild(del);
+        list.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>
