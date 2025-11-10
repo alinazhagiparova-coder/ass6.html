@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Bites Bakery — Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function(){
+      var currentCat="all";
+      function applyFilters(){
+        var q=$("#menuSearch").val().toLowerCase();
+        $(".item").each(function(){
+          var text=$(this).text().toLowerCase();
+          var cat=$(this).data("cat");
+          var matchCat=(currentCat==="all"||cat===currentCat);
+          var matchSearch=text.indexOf(q)!==-1;
+          $(this).toggle(matchCat&&matchSearch);
+        })
+      }
+      $(".filter-btn").on("click",function(){
+        currentCat=$(this).data("filter");
+        applyFilters();
+      })
+      $("#menuSearch").on("input",applyFilters);
+      applyFilters();
+    })
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <span class="brand">Sweet Bites Bakery</span>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="menu.html" class="active">Menu</a>
+      <a href="manage.html">Manage</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="menu-wrap">
+      <div class="menu-search">
+        <input type="text" id="menuSearch" placeholder="Search pastries...">
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="cupcake">Cupcakes</button>
+        <button class="filter-btn" data-filter="macaron">Macarons</button>
+        <button class="filter-btn" data-filter="croissant">Croissants</button>
+      </div>
+
+      <div class="menu-grid">
+        <div class="item" data-cat="cupcake" id="cupcake">
+          <img src="https://i.pinimg.com/736x/4a/aa/76/4aaa764076fcb943bde63f0cc56a42c6.jpg" alt="" loading="lazy">
+          <h3>Vanilla Swirl</h3><p>Classic cupcake</p>
+        </div>
+        <div class="item" data-cat="macaron" id="macaron">
+          <img src="https://i.pinimg.com/1200x/c7/96/9a/c7969a6ebd2dca88d052abb4c8690178.jpg" alt="" loading="lazy">
+          <h3>Berry Macaron</h3><p>Fruity filling</p>
+        </div>
+        <div class="item" data-cat="croissant" id="croissant">
+          <img src="https://i.pinimg.com/736x/5d/5d/6e/5d5d6e34c84c0be2275e872eed78f978.jpg" alt="" loading="lazy">
+          <h3>Butter Croissant</h3><p>Flaky layers</p>
+        </div>
+        <div class="item" data-cat="cupcake">
+          <img src="https://i.pinimg.com/736x/ce/aa/61/ceaa61d7f6374333ce0fd206118a5135.jpg" alt="" loading="lazy">
+          <h3>Chocolate Dream</h3><p>Rich cocoa</p>
+        </div>
+        <div class="item" data-cat="macaron">
+          <img src="https://i.pinimg.com/736x/9f/46/d5/9f46d5f818c6992d1ed47a5e87538e80.jpg" alt="" loading="lazy">
+          <h3>Pistachio Macaron</h3><p>Nutty delight</p>
+        </div>
+        <div class="item" data-cat="croissant">
+          <img src="https://i.pinimg.com/736x/31/98/a8/3198a87eaa63e9883de33142ec3cae95.jpg" alt="" loading="lazy">
+          <h3>Almond Croissant</h3><p>Sweet crunch</p>
+        </div>
+      </div>
+
+      <h2 class="menu-table-title">Pricing Table</h2>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Category</th>
+            <th>Size</th>
+            <th>Price (KZT)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vanilla Swirl</td>
+            <td>Cupcake</td>
+            <td>Box of 4</td>
+            <td>1600</td>
+          </tr>
+          <tr>
+            <td>Chocolate Dream</td>
+            <td>Cupcake</td>
+            <td>Box of 6</td>
+            <td>2600</td>
+          </tr>
+          <tr>
+            <td>Berry Macaron</td>
+            <td>Macaron</td>
+            <td>Box of 8</td>
+            <td>3200</td>
+          </tr>
+          <tr>
+            <td>Pistachio Macaron</td>
+            <td>Macaron</td>
+            <td>Box of 10</td>
+            <td>4000</td>
+          </tr>
+          <tr>
+            <td>Butter Croissant</td>
+            <td>Croissant</td>
+            <td>Single</td>
+            <td>600</td>
+          </tr>
+          <tr>
+            <td>Almond Croissant</td>
+            <td>Croissant</td>
+            <td>Single</td>
+            <td>750</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © 2025 Sweet Bites Bakery • <a href="contact.html">Contact</a> • Open daily 8:00–20:00
+  </footer>
+</body>
+</html>

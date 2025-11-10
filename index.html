@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Bites Bakery — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function(){
+      $(".btn-shop").on("click",function(){ window.location.href="menu.html" })
+      $(".btn-gallery").on("click",function(){ window.location.href="gallery.html" })
+
+      $(".btn-special").on("click",function(){
+        $("#special-modal").fadeIn(200)
+      })
+      $(".modal-close, #special-modal").on("click",function(e){
+        if(e.target === this){
+          $("#special-modal").fadeOut(200)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <span class="brand">Sweet Bites Bakery</span>
+      <a href="index.html" class="active">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="menu.html">Menu</a>
+      <a href="manage.html">Manage</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Fresh From The Oven</h1>
+      <p>Cupcakes, macarons, and croissants made with love.</p>
+      <div class="cta">
+        <button class="btn btn-shop">Browse Menu</button>
+        <button class="btn btn-gallery">See Gallery</button>
+        <button class="btn btn-special">Today’s Special</button>
+      </div>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/4a/aa/76/4aaa764076fcb943bde63f0cc56a42c6.jpg" alt="Cupcakes" loading="lazy">
+        <h3>Signature Cupcakes</h3>
+        <p>Whipped buttercream swirls</p>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/1200x/c7/96/9a/c7969a6ebd2dca88d052abb4c8690178.jpg" alt="Macarons" loading="lazy">
+        <h3>French Macarons</h3>
+        <p>Delicate shells, rich fillings</p>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/5d/5d/6e/5d5d6e34c84c0be2275e872eed78f978.jpg" alt="Croissants" loading="lazy">
+        <h3>Morning Croissants</h3>
+        <p>Flaky, buttery layers</p>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/ce/aa/61/ceaa61d7f6374333ce0fd206118a5135.jpg" alt="Chocolate Cupcake" loading="lazy">
+        <h3>Chocolate Dream</h3>
+        <p>Rich cocoa flavor</p>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/9f/46/d5/9f46d5f818c6992d1ed47a5e87538e80.jpg" alt="Pistachio Macaron" loading="lazy">
+        <h3>Pistachio Macaron</h3>
+        <p>Nutty delight</p>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/31/98/a8/3198a87eaa63e9883de33142ec3cae95.jpg" alt="Almond Croissant" loading="lazy">
+        <h3>Almond Croissant</h3>
+        <p>Sweet crunch</p>
+      </div>
+    </section>
+
+    <div id="special-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" type="button">&times;</button>
+        <h2>Today’s Special</h2>
+        <p>Try our raspberry macaron box with 10% discount if you order today.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © 2025 Sweet Bites Bakery • <a href="contact.html">Contact</a> • Open daily 8:00–20:00
+  </footer>
+</body>
+</html>

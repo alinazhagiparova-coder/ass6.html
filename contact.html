@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Bites Bakery — Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function(){
+      function showError(id,msg){ $("#"+id).text(msg) }
+      function clearErrors(){ $(".error").text("") }
+      function emailValid(v){
+        var re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(v)
+      }
+      function passwordScore(p){
+        var s=0;
+        if(p.length>=8)s++;
+        if(/[A-Z]/.test(p))s++;
+        if(/[0-9]/.test(p))s++;
+        if(/[^A-Za-z0-9]/.test(p))s++;
+        return s
+      }
+      function updateStrength(){
+        var p=$("#password").val();
+        var bar=$(".strength-bar");
+        var label=$(".strength-label");
+        bar.removeClass("weak medium strong");
+        if(!p){
+          label.text("");
+          return;
+        }
+        var s=passwordScore(p);
+        if(s<=1){bar.addClass("weak");label.text("Weak")}
+        else if(s<=3){bar.addClass("medium");label.text("Medium")}
+        else{bar.addClass("strong");label.text("Strong")}
+      }
+      $("#password").on("input",updateStrength);
+      $("form").on("submit",function(e){
+        e.preventDefault();
+        clearErrors();
+        var ok=true;
+        var name=$("#name").val().trim();
+        var email=$("#email").val().trim();
+        var msg=$("#msg").val().trim();
+        var pass=$("#password").val();
+        var conf=$("#confirm").val();
+        if(!name){showError("nameError","Name is required.");ok=false}
+        if(!email){showError("emailError","Email is required.");ok=false}
+        else if(!emailValid(email)){showError("emailError","Enter a valid email.");ok=false}
+        if(!msg){showError("msgError","Message is required.");ok=false}
+        if(!pass){showError("passwordError","Password is required.");ok=false}
+        else if(passwordScore(pass)<=1){showError("passwordError","Password is too weak.");ok=false}
+        if(!conf){showError("confirmError","Please confirm password.");ok=false}
+        else if(pass!==conf){showError("confirmError","Passwords do not match.");ok=false}
+        if(!ok)return;
+        $(".ok").fadeIn(200).text("Thanks, "+name+"! We’ll get back to you at "+email+".");
+        this.reset();
+        $(".strength-bar").removeClass("weak medium strong");
+        $(".strength-label").text("");
+      })
+    })
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <span class="brand">Sweet Bites Bakery</span>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="menu.html">Menu</a>
+      <a href="manage.html">Manage</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="contact-wrap">
+      <div class="form-card">
+        <form>
+          <div class="row">
+            <div>
+              <label>Name</label>
+              <input id="name" type="text" placeholder="Your name">
+              <div id="nameError" class="error"></div>
+            </div>
+            <div>
+              <label>Email</label>
+              <input id="email" type="email" placeholder="you@example.com">
+              <div id="emailError" class="error"></div>
+            </div>
+            <div>
+              <label>Password</label>
+              <input id="password" type="password" placeholder="Create password">
+              <div class="password-strength">
+                <div class="strength-bar"></div>
+                <span class="strength-label"></span>
+              </div>
+              <div id="passwordError" class="error"></div>
+            </div>
+            <div>
+              <label>Confirm Password</label>
+              <input id="confirm" type="password" placeholder="Repeat password">
+              <div id="confirmError" class="error"></div>
+            </div>
+            <div class="full">
+              <label>Message</label>
+              <textarea id="msg" placeholder="How can we help?"></textarea>
+              <div id="msgError" class="error"></div>
+            </div>
+          </div>
+          <button class="submit-btn" type="submit">Send Message</button>
+          <div class="ok"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © 2025 Sweet Bites Bakery • <a href="contact.html">Contact</a> • Open daily 8:00–20:00
+  </footer>
+</body>
+</html>

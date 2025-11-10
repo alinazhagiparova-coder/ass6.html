@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Bites Bakery — Manage Products</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function(){
+      var editingRow=null;
+      var sortAsc=true;
+
+      function addRow(name,cat,price){
+        var tr=$("<tr></tr>");
+        tr.append("<td>"+name+"</td>");
+        tr.append("<td>"+cat+"</td>");
+        tr.append("<td>"+price+"</td>");
+        var actions=$("<td class='manage-actions'></td>");
+        actions.append("<button type='button' class='btn-small-primary edit-btn'>Edit</button>");
+        actions.append("<button type='button' class='btn-small-danger del-btn'>Delete</button>");
+        tr.append(actions);
+        tr.hide().appendTo("#productsBody").slideDown(200);
+      }
+
+      $(".manage-form").on("submit",function(e){
+        e.preventDefault();
+        var name=$("#prodName").val().trim();
+        var cat=$("#prodCat").val().trim();
+        var price=$("#prodPrice").val().trim();
+        if(!name||!cat||!price)return;
+        if(editingRow){
+          editingRow.find("td:eq(0)").text(name);
+          editingRow.find("td:eq(1)").text(cat);
+          editingRow.find("td:eq(2)").text(price);
+          editingRow=null;
+        }else{
+          addRow(name,cat,price);
+        }
+        this.reset();
+      });
+
+      $("#productsBody").on("click",".del-btn",function(){
+        var row=$(this).closest("tr");
+        if(confirm("Delete this item?")){
+          row.fadeOut(200,function(){row.remove()});
+        }
+      });
+
+      $("#productsBody").on("click",".edit-btn",function(){
+        var row=$(this).closest("tr");
+        editingRow=row;
+        $("#prodName").val(row.find("td:eq(0)").text());
+        $("#prodCat").val(row.find("td:eq(1)").text());
+        $("#prodPrice").val(row.find("td:eq(2)").text());
+      });
+
+      $("#manageSearch").on("input",function(){
+        var q=$(this).val().toLowerCase();
+        $("#productsBody tr").each(function(){
+          var text=$(this).text().toLowerCase();
+          $(this).toggle(text.indexOf(q)!==-1);
+        });
+      });
+
+      $("#priceHeader").on("click",function(){
+        var rows=$("#productsBody tr").get();
+        rows.sort(function(a,b){
+          var pa=parseFloat($(a).find("td:eq(2)").text())||0;
+          var pb=parseFloat($(b).find("td:eq(2)").text())||0;
+          return sortAsc?pa-pb:pb-pa;
+        });
+        $.each(rows,function(_,r){$("#productsBody").append(r)});
+        sortAsc=!sortAsc;
+        $("#priceHeader span").text(sortAsc?"▲":"▼");
+      });
+
+      addRow("Vanilla Swirl","Cupcake","1600");
+      addRow("Berry Macaron","Macaron","3200");
+      addRow("Butter Croissant","Croissant","600");
+    })
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <span class="brand">Sweet Bites Bakery</span>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="menu.html">Menu</a>
+      <a href="manage.html" class="active">Manage</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="manage-wrap">
+      <form class="manage-form">
+        <input id="prodName" type="text" placeholder="Product name">
+        <input id="prodCat" type="text" placeholder="Category">
+        <input id="prodPrice" type="number" min="0" step="10" placeholder="Price KZT">
+        <button class="btn" type="submit">Save</button>
+      </form>
+
+      <div class="manage-search">
+        <input id="manageSearch" type="text" placeholder="Search in table">
+      </div>
+
+      <table class="manage-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th id="priceHeader" class="sortable">Price (KZT)<span>▲</span></th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="productsBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © 2025 Sweet Bites Bakery • <a href="contact.html">Contact</a> • Open daily 8:00–20:00
+  </footer>
+</body>
+</html>
